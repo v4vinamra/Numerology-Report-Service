@@ -1,6 +1,8 @@
 package com.magicmond.global.numerologyreportservice.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Table(name = "user_orders")
 @Builder
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class OrderInfo {
 
     @Id
