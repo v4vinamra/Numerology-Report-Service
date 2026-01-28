@@ -1,31 +1,36 @@
 package com.magicmond.global.numerologyreportservice.entities;
 
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.boot.model.internal.GeneratorStrategies;
-import tools.jackson.databind.annotation.JsonNaming;
 
 import java.util.Date;
 
 @Entity
 @Getter
 @Setter
-@Data
-@ToString
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
-public class UserInfo {
+@NoArgsConstructor
+@Table(name = "user_orders")
+@Builder
+public class OrderInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String orderId;
+
+    private int amount;
+
+    private PaymentStatus paymentStatus;
+
     public String fullName;
 
     public String emailId;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public Date dob;
 
 }
+
